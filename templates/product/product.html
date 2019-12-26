@@ -1,0 +1,340 @@
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html xmlns:border-radius="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Right Sidebar - Helios by HTML5 UP</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}"/>
+    <link rel="stylesheet" href="{% static 'assets/css/carousel.css' %}">
+    <noscript>
+        <link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}"/>
+    </noscript>
+</head>
+<body class="right-sidebar is-preload">
+<div id="page-wrapper">
+
+    <!-- Header -->
+    <div id="header">
+
+        <!-- Inner -->
+        <div class="inner">
+            <header>
+                <h1><a href="index.html" id="logo">ZZIGSA</a></h1>
+            </header>
+        </div>
+
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li>
+                    <a href="#">Dropdown</a>
+                    <ul>
+                        <li><a href="#">Lorem ipsum dolor</a></li>
+                        <li><a href="#">Magna phasellus</a></li>
+                        <li><a href="#">Etiam dolore nisl</a></li>
+                        <li>
+                            <a href="#">And a submenu &hellip;</a>
+                            <ul>
+                                <li><a href="#">Lorem ipsum dolor</a></li>
+                                <li><a href="#">Phasellus consequat</a></li>
+                                <li><a href="#">Magna phasellus</a></li>
+                                <li><a href="#">Etiam dolore nisl</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">Veroeros feugiat</a></li>
+                    </ul>
+                </li>
+                <li><a href="product_assemble.html">작가 모여있는 페이지</a></li>
+                <li><a href="product.html">상품(작가)페이지</a></li>
+                <li><a href="login/login.html">Login</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Main -->
+    <div class="wrapper style1">
+
+        <div class="container">
+            <div class="row gtr-200">
+                <div class="col-8 col-12-mobile" id="content">
+                    <article id="main">
+                        <header>
+                            <h2><a href="#">상품이름</a></h2>
+                            <p>
+                                상품 간단 설명
+                                아래는 상품 사진
+                            </p>
+                        </header>
+                        <!-- 아래는 assets의 carousel.css와 carousel.js를 따로 만들어 사용 -->
+                        <!-- Slideshow container -->
+                        <div class="slideshow-container">
+
+                            <!-- Full-width images with number and caption text -->
+                            <div class="mySlides fade">
+                                <div class="numbertext">1 / 4</div>
+                                <img src="images/pic01.jpg" style="width:100%">
+                                <div class="text">Caption Text</div>
+                            </div>
+
+                            <div class="mySlides fade">
+                                <div class="numbertext">2 / 4</div>
+                                <img src="images/pic02.jpg" style="width:100%">
+                                <div class="text">Caption Two</div>
+                            </div>
+
+                            <div class="mySlides fade">
+                                <div class="numbertext">3 / 4</div>
+                                <img src="images/pic03.jpg" style="width:100%">
+                                <div class="text">Caption Three</div>
+                            </div>
+
+                            <div class="mySlides fade">
+                                <div class="numbertext">4 / 4</div>
+                                <img src="images/pic04.jpg" style="width:100%">
+                                <div class="text">Caption Four</div>
+                            </div>
+
+                            <!-- Next and previous buttons -->
+                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        </div>
+                        <br>
+
+                        <!-- The dots/circles -->
+                        <div style="text-align:center">
+                            <span class="dot" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span>
+                            <span class="dot" onclick="currentSlide(4)"></span>
+                        </div>
+                        <!--                        -->
+                        <p>
+                            상품 상세설명
+                        </p>
+                        <section>
+                            <header>
+                                <h3>Ultrices tempor sagittis nisl</h3>
+                            </header>
+                            <p>
+                                Nascetur volutpat nibh ullamcorper vivamus at purus. Cursus ultrices porttitor
+                                sollicitudin imperdiet
+                                at pretium tellus in euismod a integer sodales neque. Nibh quis dui quis mattis eget
+                                imperdiet venenatis
+                                feugiat. Neque primis ligula cum erat aenean tristique luctus risus ipsum praesent
+                                iaculis. Fermentum elit
+                                fringilla consequat dis arcu. Pellentesque mus tempor vitae pretium sodales porttitor
+                                lacus. Phasellus
+                                egestas odio nisl duis sociis purus faucibus morbi. Eget massa mus etiam sociis pharetra
+                                magna.
+                            </p>
+                            <p>
+                                Eleifend auctor turpis magnis sed porta nisl pretium. Aenean suspendisse nulla eget sed
+                                etiam parturient
+                                orci cursus nibh. Quisque eu nec neque felis laoreet diam morbi egestas. Dignissim cras
+                                rutrum consectetur
+                                ut penatibus fermentum nibh erat malesuada varius.
+                            </p>
+                        </section>
+                        <section>
+                            <header>
+                                <h3>Augue euismod feugiat tempus</h3>
+                            </header>
+                            <p>
+                                Pretium tellus in euismod a integer sodales neque. Nibh quis dui quis mattis eget
+                                imperdiet venenatis
+                                feugiat. Neque primis ligula cum erat aenean tristique luctus risus ipsum praesent
+                                iaculis. Fermentum elit
+                                ut nunc urna volutpat donec cubilia commodo risus morbi. Lobortis vestibulum velit
+                                malesuada ante
+                                egestas odio nisl duis sociis purus faucibus morbi. Eget massa mus etiam sociis pharetra
+                                magna.
+                            </p>
+                        </section>
+                    </article>
+                </div>
+                <div class="col-4 col-12-mobile" id="sidebar">
+                    <hr class="first"/>
+                    <section id="main">
+                        <header>
+                            <span class="avatar"><img src="images/take_a_look.png" alt="" height="200"
+                                                      width="200"
+                                                      style="border-radius: 50%; background-color: wheat"></span>
+                            <br>
+                            <br>
+                            <p>작가 이름</p>
+                            <h5>자기 소개</h5>
+                        </header>
+                        <footer>
+                            <a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span> SNS</a>
+                        </footer>
+                    </section>
+                    <hr>
+                    <section>
+                        <header>
+                            <h3><a href="#">스케줄 내용</a></h3>
+                        </header>
+                        <p>
+                            스케줄 가능 시간은 ~입니다.
+                        </p>
+                        <footer>
+                            <a href="#" class="button">스케줄 넣을곳</a>
+                        </footer>
+                    </section>
+                    <hr/>
+                    <section>
+                        <header>
+                            <h3><a href="#">다른 상품들</a></h3>
+                        </header>
+                        <p>
+                            다른 상품들입니다.
+                        </p>
+                        <div class="row gtr-50">
+                            <div class="col-4">
+                                <a href="#" class="image fit"><img src="images/pic10.jpg" alt=""/></a>
+                            </div>
+                            <div class="col-8">
+                                <h4>상품이름</h4>
+                                <p>
+                                    상품 간단 설명
+                                </p>
+                            </div>
+                            <div class="col-4">
+                                <a href="#" class="image fit"><img src="images/pic11.jpg" alt=""/></a>
+                            </div>
+                            <div class="col-8">
+                                <h4>Proin sed adipiscing</h4>
+                                <p>
+                                    Amet nullam fringilla nibh nulla convallis tique ante proin.
+                                </p>
+                            </div>
+                            <div class="col-4">
+                                <a href="#" class="image fit"><img src="images/pic12.jpg" alt=""/></a>
+                            </div>
+                            <div class="col-8">
+                                <h4>Lorem feugiat magna</h4>
+                                <p>
+                                    Amet nullam fringilla nibh nulla convallis tique ante proin.
+                                </p>
+                            </div>
+                            <div class="col-4">
+                                <a href="#" class="image fit"><img src="images/pic13.jpg" alt=""/></a>
+                            </div>
+                            <div class="col-8">
+                                <h4>Sed tempus fringilla</h4>
+                                <p>
+                                    Amet nullam fringilla nibh nulla convallis tique ante proin.
+                                </p>
+                            </div>
+                            <div class="col-4">
+                                <a href="#" class="image fit"><img src="images/pic14.jpg" alt=""/></a>
+                            </div>
+                            <div class="col-8">
+                                <h4>Malesuada fermentum</h4>
+                                <p>
+                                    Amet nullam fringilla nibh nulla convallis tique ante proin.
+                                </p>
+                            </div>
+                        </div>
+                        <footer>
+                            <a href="product_assemble.html" class="button">다른 작가 보러가기</a>
+                        </footer>
+                    </section>
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                상품후기
+            </div>
+        </div>
+    </div>
+
+<!-- Footer -->
+<div id="footer">
+    <div class="container">
+        <div class="row">
+
+            <!-- Tweets -->
+            <section class="col-4 col-12-mobile">
+                <header>
+                    <h2 class="icon brands fa-twitter circled"><span class="label">Tweets</span></h2>
+                </header>
+                <h1>하이염ㅋㅋㅋㅋㅋㅋㅋㅋㅋㅋ~~~~~~</h1>
+            </section>
+
+            <!-- Posts -->
+            <section class="col-4 col-12-mobile">
+                <header>
+                    <h2 class="icon solid fa-file circled"><span class="label">Posts</span></h2>
+                </header>
+                <h1>하이하이 ㅎㅎㅎㅎㅎㅎㅎㅎㅎㅎ</h1>
+            </section>
+
+            <!-- Photos -->
+            <section class="col-4 col-12-mobile">
+                <header>
+                    <h2 class="icon solid fa-camera circled"><span class="label">Photos</span></h2>
+                </header>
+                <h1>가나다라마바사아자차카타파하가나다라마바사아자차카타파하</h1>
+            </section>
+            <p style="text-align: center;margin: 0 auto"><a href="" class="button">작가 등록하러 가기</a></p>
+        </div>
+        <hr/>
+        <div class="row">
+            <div class="col-12">
+
+                <!-- Contact -->
+                <section class="contact">
+                    <header>
+                        <h3>Nisl turpis nascetur interdum?</h3>
+                    </header>
+                    <p>Urna nisl non quis interdum mus ornare ridiculus egestas ridiculus lobortis vivamus tempor
+                        aliquet.</p>
+                    <ul class="icons">
+                        <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a>
+                        </li>
+                        <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a>
+                        </li>
+                        <li><a href="#" class="icon brands fa-pinterest"><span class="label">Pinterest</span></a>
+                        </li>
+                        <li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>
+                        <li><a href="#" class="icon brands fa-linkedin-in"><span class="label">Linkedin</span></a>
+                        </li>
+                    </ul>
+                </section>
+
+                <!-- Copyright -->
+                <div class="copyright">
+                    <ul class="menu">
+                        <li>&copy; Untitled. All rights reserved.</li>
+                        <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</div>
+
+<!-- Scripts -->
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
+<script src="{% static 'assets/js/browser.min.js' %}"></script>
+<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+<script src="{% static 'assets/js/util.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+
+</body>
+</html>
