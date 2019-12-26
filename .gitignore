@@ -170,3 +170,6 @@ dmypy.json
 
 # Secret Key
 secrets.json
+
+# venv
+venv
