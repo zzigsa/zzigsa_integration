@@ -13,7 +13,7 @@ from . import forms, models
 class LoginView(FormView):
     template_name = "login/login.html"
     form_class = forms.LoginForm
-    success_url = reverse_lazy("core:home")
+    success_url = reverse_lazy("home")
 
     def form_valid(self, form):
         email = form.cleaned_data.get("email")
@@ -26,13 +26,13 @@ class LoginView(FormView):
 
 def log_out(request):
     logout(request)
-    return redirect(reverse("core:home"))
+    return redirect(reverse("home"))
 
 
 class SignUpView(FormView):
     template_name = "login/sign_up.html"
     form_class = forms.SignUpForm
-    success_url = reverse_lazy("core:home")
+    success_url = reverse_lazy("home")
 
     def form_valid(self, form):
         form.save()
@@ -56,7 +56,7 @@ def complete_verification(request, key):
         # to do: add error message
         pass
 
-    return redirect(reverse('core:home'))
+    return redirect(reverse('home'))
 
 
 def kakao_login(request):
@@ -119,6 +119,6 @@ def kakao_callback(request):
                     email_verified=True,
                 )
         login(request, user)
-        return redirect(reverse("core:home"))
+        return redirect(reverse("home"))
     except KakaoException:
-        return redirect(reverse("user:login"))
+        return redirect(reverse("users:login"))
