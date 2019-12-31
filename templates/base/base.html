@@ -28,7 +28,7 @@
         <li><a href="product.html">상품(작가)페이지</a></li>
         {% if user.is_authenticated %}
             <li>
-                    <a href="#">. . .</a>
+                    <a href="#">{{ user.nickname }}님</a>
                     <ul>
                         <li><a href="{% url 'users:logout' %}">로그아웃</a></li>
                         <li><a href="#">마이페이지</a></li>
