@@ -25,6 +25,7 @@ class SignUpForm(forms.ModelForm):
         model = models.User
         fields = ("email", "nickname",)
 
+    email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email address'}))
     nickname = forms.CharField(max_length=20, min_length=2, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nickname'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirm Password'}), label="Confirm password")
