@@ -172,4 +172,4 @@ dmypy.json
 secrets.json
 
 # venv
-venv
+/venv/
