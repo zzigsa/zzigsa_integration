@@ -8,8 +8,6 @@ from django.core.files.base import ContentFile  # FileField 쓸 때 필요한거
 from . import forms, models
 
 
-# Create your views here.
-
 class LoginView(FormView):
     template_name = "login/login.html"
     form_class = forms.LoginForm

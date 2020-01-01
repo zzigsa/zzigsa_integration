@@ -15,7 +15,6 @@
         <link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}"/>
     </noscript>
 </head>
-
 {% block header %}
 
 {% endblock %}
@@ -28,23 +27,23 @@
         <li><a href="product.html">상품(작가)페이지</a></li>
         {% if user.is_authenticated %}
             <li>
-                    <a href="#">{{ user.nickname }}님</a>
-                    <ul>
-                        <li><a href="{% url 'users:logout' %}">로그아웃</a></li>
-                        <li><a href="#">마이페이지</a></li>
-                        <li><a href="#">쪽지</a></li>
-                        <li><a href="login/photog_reg.html">작가 등록</a></li>
-                        <li>
-                            <a href="#">And a submenu &hellip;</a>
-                            <ul>
-                                <li><a href="#">Lorem ipsum dolor</a></li>
-                                <li><a href="#">Phasellus consequat</a></li>
-                                <li><a href="#">Magna phasellus</a></li>
-                                <li><a href="#">Etiam dolore nisl</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
+                <a href="#">{{ user.nickname }}님</a>
+                <ul>
+                    <li><a href="{% url 'users:logout' %}">로그아웃</a></li>
+                    <li><a href="#">마이페이지</a></li>
+                    <li><a href="#">쪽지</a></li>
+                    <li><a href="login/photog_reg.html">작가 등록</a></li>
+                    <li>
+                        <a href="#">And a submenu &hellip;</a>
+                        <ul>
+                            <li><a href="#">Lorem ipsum dolor</a></li>
+                            <li><a href="#">Phasellus consequat</a></li>
+                            <li><a href="#">Magna phasellus</a></li>
+                            <li><a href="#">Etiam dolore nisl</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
         {% else %}
             <li><a href="{% url 'users:login' %}">로그인</a></li>
         {% endif %}
