@@ -17,8 +17,12 @@
 
 ### 개인정보 수정, 비밀번호 수정 구현할 것.
 * * *
+## Installation
+    1. pip install -r requirements.txt
+    
+    2. python manage.py runserver
+* * *
 ## 패키지 환경 관리
+    requirements 만들 때 : pip freeze > requirements.txt
 
-##### pip freeze > requirements.txt
-
-##### pip install -r requirements.txt
+    requirements 설치할 때 : pip install -r requirements.txt
