@@ -25,13 +25,13 @@
         <li><a href="{% url 'home' %}">홈</a></li>
         <li><a href="product_assemble.html">스냅 피드</a></li>
         {% if user.is_authenticated %}
-            <li><a href="{% url 'users:logout' %}">로그아웃</a></li>
+            <li><a href="login/photog_reg.html">작가 등록</a></li>
             <li>
                 <a href="#">{{ user.nickname }}님</a>
                 <ul>
+                    <li><a href="{% url 'users:logout' %}">로그아웃</a></li>
                     <li><a href="{{ user.get_absolute_url }}">마이페이지</a></li>
                     <li><a href="#">쪽지</a></li>
-                    <li><a href="login/photog_reg.html">작가 등록</a></li>
                 </ul>
             </li>
         {% else %}
@@ -49,44 +49,7 @@
 <div id="footer">
     <div class="container">
         <div class="row">
-
-            <!-- Tweets -->
-            <section class="col-4 col-12-mobile">
-                <header>
-                    <h2 class="icon brands fa-twitter circled"><span class="label">Tweets</span></h2>
-                </header>
-                <h1 align="center">찍사를 통하여 만난 작가들의 작품으로 <br><br>자신만의 스냅사진을 SNS에 올려보세요</h1>
-            </section>
-
-            <!-- Posts -->
-            <section class="col-4 col-12-mobile">
-                <header>
-                    <h2 class="icon solid fa-file circled"><span class="label">Posts</span></h2>
-                </header>
-                <h1 align="center">작가들의 작품을 인화하여 <br><br>인생 사진을 남길 수 있습니다</h1>
-            </section>
-
-            <!-- Photos -->
-            <section class="col-4 col-12-mobile">
-                <header>
-                    <h2 class="icon solid fa-camera circled"><span class="label">Photos</span></h2>
-                </header>
-                <h1 align="center">사이트를 이용하는 분들도 <br><br>누구나 작가가 될 수 있습니다</h1>
-            </section>
-        </div>
-        <hr/>
-        <div class="row">
             <div class="col-12">
-
-                <!-- Contact -->
-                <section class="contact">
-                    <header>
-                        <h3>사진작가로 활동해보시는 건 어떠신가요?</h3>
-                    </header>
-                    <p>누구나 사진작가가 될 수 있습니다.</p>
-                    <p style="text-align: center;margin: 0 auto"><a href="" class="button">작가 등록하러 가기</a></p>
-                </section>
-
                 <!-- Copyright -->
                 <div class="copyright">
                     <ul class="menu">
