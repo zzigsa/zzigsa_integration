@@ -9,6 +9,8 @@
 * * *
 # Specification
 
+### secretkey는 따로 보관해 둠
+
 ### 템플릿 상속은 했으나 product는 캐러셀이 달라 따로 생각해 주어야 하며
     
 ### login fornt page는  중복되는 부분이 적어 상속을 하지 않음.
@@ -19,8 +21,9 @@
 * * *
 ## Installation
     1. pip install -r requirements.txt
-    
-    2. python manage.py runserver
+    2. python manage.py makemigrations
+    3. python manage.py migrate
+    4. python manage.py runserver
 * * *
 ## 패키지 환경 관리
     requirements 만들 때 : pip freeze > requirements.txt
