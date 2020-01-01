@@ -24,9 +24,11 @@
             <div class="row gtr-200">
                 <div class="col-4 col-12-mobile" id="sidebar">
                     <hr class="first"/>
-                    <a href="">개인정보 수정</a>
-                    <hr>
                     <a href="">쪽지</a>
+                    <hr>
+                    <a href="{% url 'users:update' %}">개인정보 수정</a>
+                    <hr>
+                    <a href="{% url 'users:password' %}">비밀번호 변경</a>
                     <hr>
                     <a href="">회원탈퇴</a>
                 </div>
@@ -61,7 +63,6 @@
                                     찍사 아님
                                 {% endif %}
                             </p>
-                            <a href="{% url 'user:update' %}">회원정보 수정하기</a>
                         </div>
 
                         {% if user.zzigsa == "approved" %}

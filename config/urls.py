@@ -20,7 +20,6 @@ import core.views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', core.views.home, name='home'),
-    path('mypage/', core.views.test, name='mypage'),
     path('products/', core.views.test2, name='products'),
     path('product/', core.views.test3, name='product'),
 
