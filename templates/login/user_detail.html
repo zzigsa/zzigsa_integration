@@ -45,13 +45,6 @@
                             <h1>회원 정보</h1>
                             <br>
                             <p>닉네임 : {{ user.nickname }}</p>
-                            <p>
-                                {% if user.login_method == "email" %}
-                                    이메일 : {{ user.email }}
-                                {% elif user.login_method == "kakao" %}
-                                    카카오 가입자
-                                {% endif %}
-                            </p>
                             <br>
                             <br>
                             <p>
