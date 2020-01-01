@@ -32,15 +32,14 @@
         <!-- Nav -->
         <nav id="nav">
             <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="product_assemble.html">작가 모여있는 페이지</a></li>
-                <li><a href="product.html">상품(작가)페이지</a></li>
+                <li><a href="{% url 'home' %}">홈</a></li>
+                <li><a href="product_assemble.html">스냅 피드</a></li>
                 {% if user.is_authenticated %}
+                    <li><a href="{% url 'users:logout' %}">로그아웃</a></li>
                     <li>
                         <a href="#">{{ user.nickname }}님</a>
                         <ul>
-                            <li><a href="{% url 'users:logout' %}">로그아웃</a></li>
-                            <li><a href="#">마이페이지</a></li>
+                            <li><a href="{{ user.get_absolute_url }}">마이페이지</a></li>
                             <li><a href="#">쪽지</a></li>
                             <li><a href="login/photog_reg.html">작가 등록</a></li>
                         </ul>
