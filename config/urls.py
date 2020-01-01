@@ -25,4 +25,5 @@ urlpatterns = [
     path('product/', core.views.test3, name='product'),
 
     path("user/", include("users.urls", namespace="user")),
+    path("photographers/", include("photographer.urls", namespace="photographers")),
 ]

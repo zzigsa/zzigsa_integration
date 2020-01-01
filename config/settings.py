@@ -57,6 +57,7 @@ INSTALLED_APPS = [
     'users',
     'conversations',
     'core',
+    'photographer',
 ]
 
 MIDDLEWARE = [

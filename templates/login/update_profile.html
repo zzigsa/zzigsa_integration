@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block header %}
+    <body class="left-sidebar is-preload">
+    <div id="page-wrapper">
+
+    <!-- Header -->
+    <div id="header">
+
+    <!-- Inner -->
+    <div class="inner">
+        <header>
+            <h1><a href="{% url 'home' %}" id="logo">ZZIGSA</a></h1>
+        </header>
+    </div>
+{% endblock %}
+{% block main %}
+    <h1>회원정보 수정</h1>
+    <h3>닉네임만 바꾸면 됨</h3>
+
+    {% if user.login_method == "email" %}
+
+        이건 이메일로 로그인했으니까 비번변경가능
+        <a href="{% url 'users:password' %}">비밀번호 변경</a>
+
+    {% elif user.login_method == "kakao" %}
+
+        카카오 로그인은 change password 자체가 접근이 안됨
+
+    {% endif %}
+{% endblock %}
