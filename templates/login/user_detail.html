@@ -1,5 +1,6 @@
 {% extends 'base/base.html' %}
 {% load static %}
+
 {% block header %}
     <body class="left-sidebar is-preload">
     <div id="page-wrapper">
@@ -14,53 +15,122 @@
         </header>
     </div>
 {% endblock %}
+
 {% block main %}
-    난 이렇게 틀만 잡았지만 준혁이가 그럴싸하게 만들어줄거라 믿어 ㅎ
+    <!-- Main -->
+    <div class="wrapper style1">
 
-    <div>
-        <h1>회원 정보</h1>
-        <p>닉네임 : {{ user.nickname }}</p>
-        <p>
-            {% if user.login_method == "email" %}
-                이메일 : {{ user.email }}
-            {% elif user.login_method == "kakao" %}
-                카카오 가입자
-            {% endif %}
-        </p>
-        <p>
-            찍사 등급(?):
+        <div class="container">
+            <div class="row gtr-200">
+                <div class="col-4 col-12-mobile" id="sidebar">
+                    <hr class="first"/>
+                    <a href="">개인정보 수정</a>
+                    <hr>
+                    <a href="">쪽지</a>
+                    <hr>
+                    <a href="">회원탈퇴</a>
+                </div>
+                <div class="col-8 col-12-mobile imp-mobile" id="content">
+                    <article id="main">
+                        <header>
+                            <h2><a href="#">My Page</a></h2>
+                            <p>
+                                마이페이지에 오신걸 환경합니다
+                            </p>
+                        </header>
+                        난 이렇게 틀만 잡았지만 준혁이가 그럴싸하게 만들어줄거라 믿어 ㅎ
 
-            {% if user.zzigsa == "approved" %}
-                찍사
-            {% elif user.zzigsa == "not yet" %}
-                찍사 신청 완료 상태. 운영자가 승인을 검토중입니다.
-            {% else %}
-                찍사 아님
-            {% endif %}
-        </p>
-        <a href="{% url 'user:update' %}">회원정보 수정하기</a>
+                        <div>
+                            <h1>회원 정보</h1>
+                            <p>닉네임 : {{ user.nickname }}</p>
+                            <p>
+                                {% if user.login_method == "email" %}
+                                    이메일 : {{ user.email }}
+                                {% elif user.login_method == "kakao" %}
+                                    카카오 가입자
+                                {% endif %}
+                            </p>
+                            <p>
+                                찍사 등급(?):
+
+                                {% if user.zzigsa == "approved" %}
+                                    찍사
+                                {% elif user.zzigsa == "not yet" %}
+                                    찍사 신청 완료 상태. 운영자가 승인을 검토중입니다.
+                                {% else %}
+                                    찍사 아님
+                                {% endif %}
+                            </p>
+                            <a href="{% url 'user:update' %}">회원정보 수정하기</a>
+                        </div>
+
+                        {% if user.zzigsa == "approved" %}
+                            <div>
+                                <h1>찍사 등록 정보</h1>
+                                <p>아직 구현 x</p>
+                                <div><a href="#">찍사 프로필 관리</a></div>
+                                <h1>스케줄 현황</h1>
+                                <p>아직 구현 x</p>
+                            </div>
+                        {% elif user.zzigsa == "not yet" %}
+                            <div>
+                                <h1>(대충 찍사 승인 검토중이라는 문구)</h1>
+                                <p>찍사 신청한 내용 보이게 하면 좋을 듯</p>
+                            </div>
+                        {% elif user.zzigsa == "denied" %}
+                            <div>
+                                <h1>구매 이력</h1>
+                                <p>아직 구현 x</p>
+                            </div>
+                        {% endif %}
+
+
+                        if문마다 템플릿이 달라지니까 조각조각 따로 만들어서 include 하는게 좋을거같음
+
+
+                    </article>
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                <article class="col-4 col-12-mobile special">
+                    <a href="#" class="image featured"><img src="images/pic07.jpg" alt=""/></a>
+                    <header>
+                        <h3><a href="#">Gravida aliquam penatibus</a></h3>
+                    </header>
+                    <p>
+                        Amet nullam fringilla nibh nulla convallis tique ante proin sociis accumsan lobortis. Auctor
+                        etiam
+                        porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer
+                        interdum.
+                    </p>
+                </article>
+                <article class="col-4 col-12-mobile special">
+                    <a href="#" class="image featured"><img src="images/pic08.jpg" alt=""/></a>
+                    <header>
+                        <h3><a href="#">Sed quis rhoncus placerat</a></h3>
+                    </header>
+                    <p>
+                        Amet nullam fringilla nibh nulla convallis tique ante proin sociis accumsan lobortis. Auctor
+                        etiam
+                        porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer
+                        interdum.
+                    </p>
+                </article>
+                <article class="col-4 col-12-mobile special">
+                    <a href="#" class="image featured"><img src="images/pic09.jpg" alt=""/></a>
+                    <header>
+                        <h3><a href="#">Magna laoreet et aliquam</a></h3>
+                    </header>
+                    <p>
+                        Amet nullam fringilla nibh nulla convallis tique ante proin sociis accumsan lobortis. Auctor
+                        etiam
+                        porttitor phasellus tempus cubilia ultrices tempor sagittis. Nisl fermentum consequat integer
+                        interdum.
+                    </p>
+                </article>
+            </div>
+        </div>
+
     </div>
-
-    {% if user.zzigsa == "approved" %}
-        <div>
-            <h1>찍사 등록 정보</h1>
-            <p>아직 구현 x</p>
-            <div><a href="#">찍사 프로필 관리</a></div>
-            <h1>스케줄 현황</h1>
-            <p>아직 구현 x</p>
-        </div>
-    {% elif user.zzigsa == "not yet" %}
-        <div>
-            <h1>(대충 찍사 승인 검토중이라는 문구)</h1>
-            <p>찍사 신청한 내용 보이게 하면 좋을 듯</p>
-        </div>
-    {% elif user.zzigsa == "denied" %}
-        <div>
-            <h1>구매 이력</h1>
-            <p>아직 구현 x</p>
-        </div>
-    {% endif %}
-
-
-    if문마다 템플릿이 달라지니까 조각조각 따로 만들어서 include 하는게 좋을거같음
 {% endblock %}
