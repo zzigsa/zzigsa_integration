@@ -23,7 +23,7 @@
 <nav id="nav">
     <ul>
         <li><a href="{% url 'home' %}">홈</a></li>
-        <li><a href="product_assemble.html">스냅 피드</a></li>
+        <li><a href="{% url 'products' %}">스냅 피드</a></li>
         {% if user.is_authenticated %}
             <li><a href="login/photog_reg.html">작가 등록</a></li>
             <li>
