@@ -2,6 +2,7 @@
 ![Team](https://img.shields.io/badge/Team-zzigsa-brightgreen)
 ![framework](https://img.shields.io/badge/Framework-Django-blue)
 ![Front](https://img.shields.io/badge/Front-Html5up-ff69b4)
+![Bootstrap](https://img.shields.io/badge/Bootstrap-Material-9cf)
 
 사진 작가를 위한 웹 사이트입니다.
 

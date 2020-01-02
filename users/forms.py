@@ -3,7 +3,7 @@ from . import models
 
 
 class LoginForm(forms.Form):
-    email = forms.EmailField(widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Email address'}))
+    email = forms.EmailField(widget=forms.TextInput(attrs={'type': 'email', 'class': 'form-control', 'placeholder': 'Email address'}))
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Password'}))
 
     def clean(self):
