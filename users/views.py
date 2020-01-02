@@ -191,6 +191,3 @@ def get_secret(setting, secrets=secrets):
     except KeyError:
         error_msg = "Set the {} environment variable".format(setting)
         raise ImproperlyConfigured(error_msg)
-
-
-KAKAO_ID = get_secret("KAKAO_ID")
