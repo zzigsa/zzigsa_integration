@@ -2592,7 +2592,6 @@ body.homepage.is-preload #header:after {
 .carousel article {
     display: inline-block;
     width: 18em;
-    height: 185px;
     color: white;
     background: black;
     text-align: center;
@@ -2644,7 +2643,6 @@ body.homepage.is-preload #header:after {
 
     .carousel article {
         width: 18em;
-        height: 185px;
         margin: 0 1.25em 0 0;
     }
 
