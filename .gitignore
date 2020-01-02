@@ -173,3 +173,6 @@ secrets.json
 
 # venv
 /venv/
+
+# kakao
+kakao.json

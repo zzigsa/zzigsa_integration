@@ -1,5 +1,6 @@
-import os
+import os, json
 import requests
+from django.core.exceptions import ImproperlyConfigured
 from django.contrib.auth.views import PasswordChangeView
 from django.views.generic import FormView, DetailView, UpdateView
 from django.urls import reverse_lazy
@@ -66,7 +67,8 @@ def complete_verification(request, key):
 
 
 def kakao_login(request):
-    client_id = os.environ.get("KAKAO_ID")
+    # client_id = os.environ.get("KAKAO_ID")
+    client_id = get_secret("KAKAO_ID")
     redirect_uri = "http://127.0.0.1:8000/user/login/kakao/callback"
     return redirect(
         f"https://kauth.kakao.com/oauth/authorize?client_id={client_id}&redirect_uri={redirect_uri}&response_type=code"
@@ -80,7 +82,8 @@ class KakaoException(Exception):
 def kakao_callback(request):
     try:
         code = request.GET.get("code")
-        client_id = os.environ.get("KAKAO_ID")
+        # client_id = os.environ.get("KAKAO_ID")
+        client_id = get_secret("KAKAO_ID")
         redirect_uri = "http://127.0.0.1:8000/user/login/kakao/callback"
         token_request = requests.get(
             f"https://kauth.kakao.com/oauth/token?grant_type=authorization_code&client_id={client_id}&redirect_uri={redirect_uri}&code={code}"
@@ -133,6 +136,7 @@ def kakao_callback(request):
 class UserProfileView(DetailView):
     model = models.User
     template_name = "login/user_detail.html"
+
     # context_object_name = "user_obj"
 
     def get_context_data(self, **kwargs):
@@ -169,3 +173,24 @@ class UpdatePassword(
 
     def get_success_url(self):
         return self.request.user.get_absolute_url()
+
+
+# for kakao secret key
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+secret_file = os.path.join(BASE_DIR, 'kakao.json')  # secrets.json 파일 위치를 명시
+
+with open(secret_file) as f:
+    secrets = json.loads(f.read())
+
+
+def get_secret(setting, secrets=secrets):
+    """비밀 변수를 가져오거나 명시적 예외를 반환한다."""
+    try:
+        return secrets[setting]
+    except KeyError:
+        error_msg = "Set the {} environment variable".format(setting)
+        raise ImproperlyConfigured(error_msg)
+
+
+KAKAO_ID = get_secret("KAKAO_ID")
