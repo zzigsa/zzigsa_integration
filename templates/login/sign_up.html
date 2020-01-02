@@ -26,22 +26,46 @@
     <br>
     <label for="inputNick" class="sr-only">Nickname</label>
     {{ form.nickname }}
-{#    <input type="text" id="inputNick" class="form-control" placeholder="Nickname" required="" autofocus="">#}
+    {#    <input type="text" id="inputNick" class="form-control" placeholder="Nickname" required="" autofocus="">#}
     <br>
     <label for="inputEmail" class="sr-only">Email address</label>
     {{ form.email }}
-{#    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">#}
+    {#    <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required="" autofocus="">#}
     <br>
     <label for="inputPassword" class="sr-only">Password</label>
     {{ form.password }}
-{#    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">#}
+    {#    <input type="password" id="inputPassword" class="form-control" placeholder="Password" required="">#}
     <br>
     <label for="inputPasswordc" class="sr-only">Confirm Password</label>
     {{ form.password2 }}
-{#    <input type="password" id="inputPasswordc" class="form-control" placeholder="Confirm Password" required="">#}
+    {#    <input type="password" id="inputPasswordc" class="form-control" placeholder="Confirm Password" required="">#}
     <br>
     <br>
     <button class="btn btn-lg btn-outline-dark btn-block" type="submit">회원가입</button>
+    {% if form.errors.email %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            이메일이 유효하지 않습니다.
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+    {% if form.errors.nickname %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            닉네임이 중복되었습니다
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
+    {% if form.errors.password2 %}
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            패스워드가 서로 맞는지 확인해주세요
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+    {% endif %}
 </form>
 
 <!-- Optional JavaScript -->
