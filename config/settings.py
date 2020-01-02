@@ -139,6 +139,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 STATIC_ROOT = os.path.join(BASE_DIR, '.static_root')
 
+MEDIA_ROOT = os.path.join(BASE_DIR, "uploads")
+MEDIA_URL = '/media/'
+
 AUTH_USER_MODEL = 'users.User'
 
 # Emali Configuration
@@ -147,3 +150,6 @@ EMAIL_PORT = "587"
 EMAIL_HOST_USER = os.environ.get("MAILGUN_USERNAME")
 EMAIL_HOST_PASSWORD = os.environ.get("MAILGUN_PASSWORD")
 EMAIL_FROM = "master@sandboxe530deb0410a46dea3a5bd87132933e1.mailgun.org"
+
+# auth
+LOGIN_URL = "/users/login/"

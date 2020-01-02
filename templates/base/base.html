@@ -25,7 +25,7 @@
         <li><a href="{% url 'home' %}">홈</a></li>
         <li><a href="{% url 'products' %}">스냅 피드</a></li>
         {% if user.is_authenticated %}
-            <li><a href="login/photog_reg.html">작가 등록</a></li>
+            <li><a href="{% url 'photographer:create' %}">작가 등록</a></li>
             <li>
                 <a href="#">{{ user.nickname }}님</a>
                 <ul>
