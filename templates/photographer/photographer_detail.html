@@ -1,33 +1,209 @@
-<!DOCTYPE html>
-<html lang="en">
+{% load static %}
+<!DOCTYPE HTML>
+<!--
+	Helios by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html xmlns:border-radius="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Right Sidebar - Helios by HTML5 UP</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" href="{% static 'assets/css/main.css' %}"/>
+    <link rel="stylesheet" href="{% static 'assets/css/carousel.css' %}">
+    <noscript>
+        <link rel="stylesheet" href="{% static 'assets/css/noscript.css' %}"/>
+    </noscript>
 </head>
-<body>
-{% if photographer.zzigsa == user %}
-    <a href="{% url 'photographers:edit' photographer.pk %}">Edit</a>
-{% endif %}
+<body class="right-sidebar is-preload">
+<div id="page-wrapper">
 
-<h2>{{ photographer.title }}</h2>
-<h3>{{ photographer.zzigsa }}작가</h3>
-<img src="{{ photographer.profile.url }}" alt="">
-<h4>{{ photographer.introduction }}</h4>
-<p>{{ photographer.description }}</p>
-<p>사용 카메라: {{ photographer.equip }}</p>
-<img src="{{ photographer.equip.url }}" alt="">
-<p>작가 sns: {{ photographer.sns }}</p>
+    <!-- Header -->
+    <div id="header">
 
-<!-- <div style="width: auto; height: auto; background-size: auto; background-image: url({{photographer.first_photo}}); "></div>
-    {% for photo in photographer.get_next_four_photos %}
-        <div style="width: auto; height: auto; background-image: url({{photo.file.url}});"></div>
-    {% endfor %} -->
+        <!-- Inner -->
+        <div class="inner">
+            <header>
+                <h1><a href="{% url 'home' %}" id="logo">ZZIGSA</a></h1>
+            </header>
+        </div>
 
-<img src="{{ photographer.first_photo }}">
+        <!-- Nav -->
+        <nav id="nav">
+            <ul>
+                <li><a href="{% url 'home' %}">홈</a></li>
+                <li><a href="{% url 'products' %}">스냅 피드</a></li>
+                {% if user.is_authenticated %}
+                    <li><a href="{% url 'photographer:create' %}">작가 등록</a></li>
+                    <li>
+                        <a href="#">{{ user.nickname }}님</a>
+                        <ul>
+                            <li><a href="{% url 'users:logout' %}">로그아웃</a></li>
+                            <li><a href="{{ user.get_absolute_url }}">마이페이지</a></li>
+                            <li><a href="#">쪽지</a></li>
+                        </ul>
+                    </li>
+                {% else %}
+                    <li><a href="{% url 'users:login' %}">로그인</a></li>
+                {% endif %}
+                {% if photographer.zzigsa == user %}
+                    <li><a href="{% url 'photographers:edit' photographer.pk %}">Edit</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+    </div>
 
-{% for photo in photographer.get_next_four_photos %}
-    <img src="{{ photo.file.url }}" alt="">
+    <!-- Main -->
+    <div class="wrapper style1">
 
-{% endfor %}
+        <div class="container">
+            <div class="row gtr-200">
+                <div class="col-8 col-12-mobile" id="content">
+                    <article id="main">
+                        <header>
+                            <h2><a href="#">{{ photographer.title }}</a></h2>
+                            <p>
+                                {{ photographer.introduction }}
+                            </p>
+                        </header>
+                        <!-- 아래는 assets의 carousel.css와 carousel.js를 따로 만들어 사용 -->
+                        <!-- Slideshow container -->
+                        <div class="slideshow-container">
+                            <!-- Full-width images with number and caption text -->
+                            <div class="mySlides fade">
+                                <img src="{{ photographer.first_photo }}" style="width: 100%">
+                            </div>
+                            {% for photo in photographer.get_next_four_photos %}
+                                <div class="mySlides fade">
+                                    <img src="{{ photo.file.url }}" style="width:100%">
+                                </div>
+                            {% endfor %}
+                            <!-- Next and previous buttons -->
+                            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                        </div>
+                        <br>
+
+                        <!-- The dots/circles -->
+                        <div style="text-align:center">
+                            <span class="dot" onclick="currentSlide(1)"></span>
+                            <span class="dot" onclick="currentSlide(2)"></span>
+                            <span class="dot" onclick="currentSlide(3)"></span>
+                            <span class="dot" onclick="currentSlide(4)"></span>
+                        </div>
+                        <!--                        -->
+                        <p>
+                            상품 상세설명
+                        </p>
+                        <section>
+                            <header>
+                                <h3>Ultrices tempor sagittis nisl</h3>
+                            </header>
+                            <p>
+                                {{ photographer.description }}
+                            </p>
+                            <p>
+                                사용 카메라: {{ photographer.equip }}
+                                <img src="{{ photographer.equip.url }}" alt="">
+                            </p>
+                        </section>
+                    </article>
+                </div>
+                <div class="col-4 col-12-mobile" id="sidebar">
+                    <hr class="first"/>
+                    <section id="main">
+                        <header>
+                            <span class="avatar"><img src="{{ photographer.profile.url }}" alt="" height="200"
+                                                      width="200"
+                                                      style="border-radius: 50%; background-color: wheat"></span>
+                            <br>
+                            <br>
+                            <p>{{ photographer.zzigsa }} 작가</p>
+                            <h5>자기 소개</h5>
+                        </header>
+                        <footer>
+                            <a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span>작가
+                                sns: {{ photographer.sns }}</a>
+                        </footer>
+                    </section>
+                    <hr>
+                    <section>
+                        <header>
+                            <h3><a href="#">스케줄 내용</a></h3>
+                        </header>
+                        <p>
+                            스케줄 가능 시간은 ~입니다.
+                        </p>
+                        <footer>
+                            <a href="#" class="button">스케줄 넣을곳</a>
+                        </footer>
+                    </section>
+                    <hr/>
+                </div>
+            </div>
+            <hr/>
+            <div class="row">
+                상품후기
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer">
+        <div class="container">
+            <div class="row">
+
+                <!-- Tweets -->
+                <section class="col-4 col-12-mobile">
+                    <header>
+                        <h2 class="icon brands fa-twitter circled"><span class="label">Tweets</span></h2>
+                    </header>
+                    <h1 align="center">찍사를 통하여 만난 작가들의 작품으로 자신만의 스냅사진을 SNS에 올려보세요</h1>
+                </section>
+
+                <!-- Posts -->
+                <section class="col-4 col-12-mobile">
+                    <header>
+                        <h2 class="icon solid fa-file circled"><span class="label">Posts</span></h2>
+                    </header>
+                    <h1 align="center">작가들의 작품으로 인화하여 인생 사진을 남길 수 있습니다</h1>
+                </section>
+
+                <!-- Photos -->
+                <section class="col-4 col-12-mobile">
+                    <header>
+                        <h2 class="icon solid fa-camera circled"><span class="label">Photos</span></h2>
+                    </header>
+                    <h1 align="center">사이트를 이용하는 분들도 누구나 작가가 될 수 있습니다.</h1>
+                </section>
+            </div>
+            <hr/>
+            <div class="row">
+                <div class="col-12">
+                    <!-- Copyright -->
+                    <div class="copyright">
+                        <ul class="menu">
+                            <li>&copy; Untitled. All rights reserved.</li>
+                            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Scripts -->
+<script src="{% static 'assets/js/jquery.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.dropotron.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.scrolly.min.js' %}"></script>
+<script src="{% static 'assets/js/jquery.scrollex.min.js' %}"></script>
+<script src="{% static 'assets/js/browser.min.js' %}"></script>
+<script src="{% static 'assets/js/breakpoints.min.js' %}"></script>
+<script src="{% static 'assets/js/util.js' %}"></script>
+<script src="{% static 'assets/js/main.js' %}"></script>
+<script src="{% static 'assets/js/carousel.js' %}"></script>
 </body>
 </html>

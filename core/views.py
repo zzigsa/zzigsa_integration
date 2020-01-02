@@ -9,7 +9,3 @@ def home(request):
 
 def test2(request):
     return render(request, 'product_assemble/product_assemble.html')
-
-
-def test3(request):
-    return render(request, 'product/product.html')

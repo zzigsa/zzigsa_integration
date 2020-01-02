@@ -23,7 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', core.views.home, name='home'),
     path('products/', core.views.test2, name='products'),
-    path('product/', core.views.test3, name='product'),
 
     path("user/", include("users.urls", namespace="user")),
     path("photographer/", include("photographer.urls", namespace="photographer")),
