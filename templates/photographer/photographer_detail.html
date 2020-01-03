@@ -44,11 +44,11 @@
                             <li><a href="#">쪽지</a></li>
                         </ul>
                     </li>
+                    {% if photographer.zzigsa.zzigsa == "Approved" %}
+                        <li><a href="{% url 'photographers:edit' photographer.pk %}">Edit</a></li>
+                    {% endif %}
                 {% else %}
                     <li><a href="{% url 'users:login' %}">로그인</a></li>
-                {% endif %}
-                {% if photographer.zzigsa == user %}
-                    <li><a href="{% url 'photographers:edit' photographer.pk %}">Edit</a></li>
                 {% endif %}
             </ul>
         </nav>
@@ -72,7 +72,7 @@
                         <div class="slideshow-container">
                             <!-- Full-width images with number and caption text -->
                             <div class="mySlides fade">
-                                <img src="{{ photographer.first_photo }}" style="width: 100%">
+                                <img src="{{ photographer.first_photo }}" style="width: 380px; height: 600px    ">
                             </div>
                             {% for photo in photographer.get_next_four_photos %}
                                 <div class="mySlides fade">
@@ -122,28 +122,38 @@
                             <br>
                         </header>
                         <footer>
-                            <a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span>작가
+                            <a href="{{ photographer.sns }}" class="icon brands fa-instagram"><span class="label">Instagram</span>작가
                                 sns: {{ photographer.sns }}</a>
                         </footer>
                     </section>
                     <hr>
                     <section>
                         <header>
-                            <h3><a href="#">스케줄 내용</a></h3>
+                            {#                            <h3><a href="#">스케줄 내용</a></h3>#}
+                            <h3>{{ user.nickname }}작가의 스케줄</h3>
                         </header>
                         <p>
-                            스케줄 가능 시간은 ~입니다.
+                            {#                            스케줄 가능 시간은 ~입니다.#}
                         </p>
                         <footer>
-                            <a href="#" class="button">스케줄 넣을곳</a>
+                            {#                            <a href="#" class="button">스케줄 넣을곳</a>#}
+                            <img src="{% static 'images/calander.png' %}" alt="">
                         </footer>
                     </section>
-                    <hr/>
                 </div>
             </div>
             <hr/>
-            <div class="row">
-                상품후기
+            <div>
+                <p>상품후기</p>
+            </div>
+            <br>
+            <div>
+                <br>
+                <input type="text">
+                <button>댓글 달기</button>
+            </div>
+            <div>
+                {{ user.nickname }} : 이 상품 좋은거 가타여
             </div>
         </div>
     </div>
