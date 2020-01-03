@@ -1,15 +1,16 @@
-<form method="POST" class="w-full" enctype="multipart/form-data">
+<form method="POST" class="form-signin" enctype="multipart/form-data">
     {% csrf_token %}
-
+    <img class="mb-4" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+    <h1><a href="{% url 'home' %}" class="badge badge-dark">ZZIGSA</a></h1>
     {% if form.non_field_errors %}
         {% for error in form.non_field_errors %}
             <span class="text-red-700 font-medium text-sm">{{ error }}</span>
         {% endfor %}
     {% endif %}
-
+    <br>
     {% for field in form %}
         {% include 'mixins/photographer/photographer_input.html' with field=field %}
     {% endfor %}
-
-    <button class="btn bg-red-500 text-white">{{ cta }}</button>
+    <br>
+    <button class="btn btn-lg btn-outline-dark btn-block">{{ cta }}</button>
 </form>
