@@ -28,7 +28,7 @@ class ApplyZzigsaForm(forms.ModelForm):
             "profile",
         )
 
-    def save(self, *args, **kwargs):
-        photographer = super().save(commit=False)
-        photographer.zzigsa.zzigsa = "Not yet"
-        photographer.save()
+    # def save(self, *args, **kwargs):
+    #     photographer = super().save(commit=False)
+    #     photographer.zzigsa.zzigsa = "Not yet"
+    #     photographer.save()

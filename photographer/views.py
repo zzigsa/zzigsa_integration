@@ -88,7 +88,7 @@ class ApplyZzigsaView(user_mixins.LoggedInOnlyView, FormView):
     template_name = "photographer/zzigsa_create.html"
 
     def form_valid(self, form):
-        photographer = form.save()
+        photographer = form.save(commit=False)
         photographer.zzigsa = self.request.user
         photographer.save()
         form.save_m2m()
