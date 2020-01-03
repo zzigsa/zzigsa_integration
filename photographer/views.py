@@ -26,7 +26,6 @@ class PhotographerDetail(DetailView):
 
 
 class EditPhotographerView(user_mixins.LoggedInOnlyView, UpdateView):
-
     model = models.Photographer
     template_name = "photographer/photographer_edit.html"
     fields = (
@@ -48,7 +47,6 @@ class EditPhotographerView(user_mixins.LoggedInOnlyView, UpdateView):
 
 
 class PhotographerPhotosView(user_mixins.LoggedInOnlyView, PhotographerDetail):
-
     model = models.Photographer
     template_name = "photographer/photographer_photos.html"
 
@@ -71,22 +69,28 @@ def delete_photo(request, photographer_pk, photo_pk):
             messages.success(request, "Photo deleted")
         return redirect(reverse("photographers:photos", kwargs={"pk": photographer_pk}))
     except models.Photographer.DoesNotExist:
-        return redirect(reverse("core:home"))
+        return redirect(reverse("home"))
 
 
 class AddPhotoView(user_mixins.LoggedInOnlyView, SuccessMessageMixin, FormView):
-
     template_name = "photographer/photo_create.html"
     form_class = forms.CreatePhotoForm
 
     def form_valid(self, form):
-        pk = kwargs.get("pk")
+        pk = self.kwargs.get("pk")
         form.save(pk)
         messages.success(self.request, "Photo Uploaded")
         return redirect(reverse("photographers:photos", kwargs={"pk": pk}))
 
 
 class ApplyZzigsaView(user_mixins.LoggedInOnlyView, FormView):
-
     form_class = forms.ApplyZzigsaForm
     template_name = "photographer/zzigsa_create.html"
+
+    def form_valid(self, form):
+        photographer = form.save()
+        photographer.zzigsa = self.request.user
+        photographer.save()
+        form.save_m2m()
+        messages.success(self.request, "찍사 신청되었습니다")
+        return redirect(reverse("photographers:detail", kwargs={"pk": photographer.pk}))
